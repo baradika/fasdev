@@ -20,7 +20,7 @@ let availableCommands = [
   "help",
   "skills",
   "clear",
-  "",
+  "social",
   "",
   "projects",
   // Add more commands as necessary
@@ -209,39 +209,58 @@ function commandHandler(command, cmdline = true) {
   if (cmdline) addCommandLine();
   backIndex = 0;
 
-  switch (command) {
+  switch (command.trim().toLowerCase()) {
     case "about":
-      addLine("An average student in SMK Negeri 24 Jakarta, Software Engineering. I like use linux and also get easily excited with cybersecurity things, if u want to ask anything about cybersecurity, u can ask me!!");
+      addLine(
+        "An average student in SMK Negeri 24 Jakarta, Software Engineering. " +
+        "I like using Linux and also get easily excited about cybersecurity. " +
+        "If you want to ask anything about cybersecurity, feel free to ask me!"
+      );
       break;
-      case "projects":
-        addLine("[n/][clb]BaraBara project: [link-https://github.com/baradika/barabara-marketplace]BaraBara Marketplace[/link][n/][n/]");
-        addLine("[n/][clb]Honeypot project: [link-https://github.com/baradika/web-honeypot-simulation]Simple Honeypot Simulation[/link][n/][n/]");
-        break;
-    case "help":
-      helpCommand("about", "About me lol");
-      helpCommand("skills", "Displays available skills");
-      helpCommand("projects", "Shows the github projectss link");
 
+    case "projects":
+      addLine(
+        "[n/][clb]BaraBara project: [link-https://github.com/baradika/barabara-marketplace]BaraBara Marketplace[/link][/clb][n/]" +
+        "[n/][clb]Honeypot project: [link-https://github.com/baradika/web-honeypot-simulation]Simple Honeypot Simulation[/link][/clb][n/]"
+      );
       break;
+
+      case "help":
+        helpCommand("about", "- About me lol");
+        helpCommand("skills", "- Skills overview");
+        helpCommand("projects", "- General/Cybersecurity projects");
+        helpCommand("social", "- Social media links");
+        break;
+
+        case "social":
+          addLine(
+            "[n/][clb]Github: [link-https://github.com/baradikae]Github (nyimpen project)[/link][/clb][n/]" +
+            "[n/][clb]Medium: [link-https://medium.com/@baracarlo]Medium (buat WU CTF)[/link][/clb][n/]"
+          );
+          break;
+
     case "clear":
       clearOutput();
       refocus();
       break;
+
     case "skills":
-      addLine("[n/][cb]skills[/cb][n/][n/][clb]Python | Javascript | PHP | Linux[/clb][n/][n/][cg]Web Development, Cybersecurity, Penetration Testing, and More![/cg]");
+      addLine(
+        "[n/][cb]Skills[/cb][n/]" +
+        "[clb]Python | JavaScript | PHP | Linux[/clb][n/]" +
+        "[cg]Web Development, Cybersecurity, Penetration Testing, and more![/cg]"
+      );
       break;
+
+
+
     default:
-      if (command.startsWith(" ")) {
-        advancedCommands(command);
-      } else {
-        addLine(
-          `[cr]carlo: ${command}: command not found`
-        );
-      }
+      addLine(`[cr]carlo: ${command}: command not found[/cr]`);
   }
+}
+
 
   refocus();
-}
 
 // Add the initial welcome message
 addLine(welcomeMessage);
