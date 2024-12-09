@@ -34,7 +34,7 @@ let backIndex = 0;
 const welcomeMessage = `
 <img src="./baradika.jpg" alt="Welcome Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
 <p style="text-align: center;">Welcome to my terminal!</p>
-<p style="text-align: center;">You can use the <span class="click" onclick="handleHelpCommand()">help</span> command to get assistance with the commands in this terminal!</p>
+<p style="text-align: center;">Kamu bisa pakai <span class="click" onclick="handleHelpCommand()">help</span> command untuk mengetahui command di terminal!</p>
 `;
 
 // Function to handle displaying the welcome message
