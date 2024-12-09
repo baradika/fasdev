@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>baradika's terminal</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./main.js"></script>
+    <style>
+      /* Tambahan style untuk terminal */
+      body {
+        font-family: 'Courier New', 'Courier', monospace;
+        background-color: #1E1E1E; /* Warna background terminal yang lebih terang */
+        color: #E0E0E0; /* Warna teks terminal yang lebih terang */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .terminal {
+        width: 80%;
+        max-width: 800px;
+        padding: 20px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        background-color: #1E1E1E;
+      }
+
+      .line {
+        display: block;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: 10px;
+      }
+
+      #terminalInput {
+        background-color: #1E1E1E;
+        border: none;
+        color: #E0E0E0;
+        font-family: 'Courier New', 'Courier', monospace;
+        outline: none;
+        width: calc(100% - 50px); /* Mengurangi padding atau margin untuk memberikan ruang pada sisi input */
+        caret-color: #E0E0E0; /* Warna kursor terminal tetap */
+        padding: 5px;
+        border-bottom: 2px solid #00BFFF; /* Menggunakan garis bawah untuk input focus */
+      }
+
+      #prefix {
+        color: #00BFFF; /* Warna awalan di terminal */
+      }
+
+      #autocomplete {
+        background-color: #1E1E1E;
+        color: #E0E0E0;
+        font-family: 'Courier New', 'Courier', monospace;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        max-height: 100px;
+        overflow-y: auto;
+        z-index: 999;
+        width: calc(100% - 50px); /* Sesuai dengan lebar input terminal */
+      }
+
+      #autocomplete div {
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      #autocomplete div:hover {
+        background-color: #E0E0E0; /* Menghilangkan warna biru pada hover */
+      }
+
+      .error {
+        color: red;
+      }
+
+      .colour {
+        display: inline;
+      }
+
+      .click {
+        color: #00BFFF;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="terminal">
+      <div id="output">
+        <div class="line">
+          Attempting to load console. P.S. If it says something below, you
+          probably need to enable javascript.
+        </div>
+        <noscript>
+          <div class="line">
+            <div class="colour red-stuff">Javascript is required to use this</div>
+          </div>
+        </noscript>
+      </div>
+      <div class="input-container">
+        <span id="prefix"></span>
+        <input
+          type="text"
+          id="terminalInput"
+          placeholder="Type your command..."
+          autocomplete="off"
+          onfocusout="refocus()"
+          spellcheck="false"
+        />
+      </div>
+      <div id="autocomplete"></div>
+    </div>
+    <script src="./main.js"></script> <!-- Script JavaScript untuk mengontrol terminal -->
+  </body>
+</html>
