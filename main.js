@@ -6,7 +6,7 @@ const CHAR_SIZE = 9.594; // Pixel width per character
 // 191.5px
 // 20 chars * 9.1203 = 182.406
 // 182.406 + 10.094
-const prefixText = `[t1]you[/t1][t2]@[/t2][t3]baradika's friend- $ [/t3]`;
+const prefixText = `[t1]you[/t1][t2]@[/t2][t3]guest- $ [/t3]`;
 // End of variables
 
 const output = document.getElementById("output");
