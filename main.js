@@ -31,20 +31,21 @@ let advancedAvailableCommands = [" "];
 let commands = [];
 let backIndex = 0;
 
-// ASCII Art Welcome Message
 const welcomeMessage = `
-
-  _                             _  _  _          
-  | |__    __ _  _ __  __ _   __| |(_)| | __ __ _ 
-  | '_ \  / _\` || '__|/ _\` | / _\` || || |/ //_\` |
-  | |_) || (_| || |  | (_| || (_| || ||   <| (_| |
-  |_.__/  \__,_||_|   \__,_| \__,_||_||_|\_\\__,_|
-                                                
-
-                       
-Welcome to my terminal!
-You can use the [cb][click-help]help[/click][/cb] command to get assistance with the commands in this terminal!
+<img src="./baradika.jpg" alt="Welcome Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
+<p style="text-align: center;">Welcome to my terminal!</p>
+<p style="text-align: center;">You can use the <span class="click" onclick="handleHelpCommand()">help</span> command to get assistance with the commands in this terminal!</p>
 `;
+
+// Function to handle displaying the welcome message
+function displayWelcomeMessage() {
+    const output = document.getElementById("output");
+    const messageElement = document.createElement("div");
+    messageElement.innerHTML = welcomeMessage;
+    output.appendChild(messageElement);
+}
+
+
 
 // Function to add raw line of text to output
 function addRawLine(text) {
